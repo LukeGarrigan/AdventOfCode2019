@@ -20,5 +20,21 @@ namespace AdventOfCode2019.Helpers
             
         }
 
+        public static List<int> CSVNumbersToList(string filePath)
+        {
+            var numbersCsv = System.IO.File.ReadAllText(filePath);
+
+            var numbersAsString = numbersCsv.Split(",");
+            var numbers = new List<int>();
+
+            for (var i = 0; i < numbersAsString.Length; i++)
+            {
+                numbers.Add(int.Parse(numbersAsString[i]));
+            }
+
+            return numbers;
+
+
+        }
     }
 }
