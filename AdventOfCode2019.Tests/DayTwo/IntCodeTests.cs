@@ -36,7 +36,6 @@ namespace AdventOfCode2019.Tests
         public void TestSimpleExample2()
         {
             intcode.Codes = new List<int>() { 1, 1, 1, 4, 99, 5, 6, 0, 99 };
-            var expectedOutput = new List<int> { 30, 1, 1, 4, 2, 5, 6, 0, 99 };
             Assert.AreEqual(30, intcode.StartComputer());
         }
         
@@ -52,7 +51,7 @@ namespace AdventOfCode2019.Tests
         {
             var output = intcode.DoPartTwo();
 
-            Assert.AreEqual(10, output);
+            Assert.AreEqual(8444, output);
         }
 
 

@@ -6,7 +6,7 @@ using AdventOfCode2019.Helpers;
 namespace AdventOfCode2019.Tests
 {
     [TestClass]
-    public class FuelCalculatorTest
+    public class FuelCalculatTests
     {
 
         private FuelCalculator fuelCalculator = new FuelCalculator("DayOne/Data.txt");
