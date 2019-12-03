@@ -29,49 +29,32 @@ namespace AdventOfCode2019.Tests
         public void TestSimpleExample()
         {
             intcode.Codes = new List<int>() { 1, 0, 0, 0, 99 };
-            Assert.AreEqual(2, intcode.StartComputer()[0]);
+            Assert.AreEqual(2, intcode.StartComputer());
         }
-
 
         [TestMethod]
         public void TestSimpleExample2()
         {
             intcode.Codes = new List<int>() { 1, 1, 1, 4, 99, 5, 6, 0, 99 };
             var expectedOutput = new List<int> { 30, 1, 1, 4, 2, 5, 6, 0, 99 };
-
-            var output = intcode.StartComputer();
-            Assert.AreEqual(30, output[0]);
-            CollectionAssert.AreEqual(expectedOutput, output);
+            Assert.AreEqual(30, intcode.StartComputer());
         }
-    
-
-        [TestMethod]
-        public void TestSimpleExample3()
-        {
-            intcode.Codes = new List<int>() { 2, 4, 4, 5, 99, 0 };
-            var expectedOutput = new List<int> { 2, 4, 4, 5, 99, 9801 };
-
-            var output = intcode.StartComputer();
-            CollectionAssert.AreEqual(expectedOutput, output);
-        }
-
-
-        [TestMethod]
-        public void TestSimpleExample4()
-        {
-            intcode.Codes = new List<int>() { 2, 3, 0, 3, 99 };
-            var expectedOutput = new List<int> { 2, 3, 0, 6, 99 };
-
-            var output = intcode.StartComputer();
-            CollectionAssert.AreEqual(expectedOutput, output);
-        }
-
         
         [TestMethod]
         public void TestDoPartOne()
         {
-            Assert.AreEqual(3101878, intcode.DoPartOne()[0]);
+            Assert.AreEqual(3101878, intcode.DoPartOne());
         }
+
+
+        [TestMethod]
+        public void TestPartTwo()
+        {
+            var output = intcode.DoPartTwo();
+
+            Assert.AreEqual(10, output);
+        }
+
 
     }
 }

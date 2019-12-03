@@ -5,28 +5,51 @@ namespace AdventOfCode2019.DayTwo
 {
     public class IntCode
     {
+        private string fileLocation;
 
         public List<int> Codes { get; set; }
 
         public IntCode(string fileLocation)
         {
+            this.fileLocation = fileLocation;
             Codes = PuzzleInputParser.CSVNumbersToList(fileLocation);
+            
         }
 
-        public List<int> DoPartOne()
+        public int DoPartTwo()
         {
-            RestoreGravity();
+            for (var noun = 0; noun <= 99; noun++)
+            {
+                for (var verb = 0; verb <= 99; verb++)
+                {
+                    Codes = PuzzleInputParser.CSVNumbersToList(fileLocation); // brilliantly inefficient
+                    RestoreGravity(noun, verb);
+
+                    var number = StartComputer();
+
+                    if (number == 19690720)
+                    {
+                        return noun * 100 + verb;
+                    }
+
+                }
+            }
+            return 0;
+        }
+
+        public int DoPartOne()
+        {
+            RestoreGravity(12, 2);
             return StartComputer();
         }
 
-        private void RestoreGravity()
+        private void RestoreGravity(int noun, int verb)
         {
-            // replace position 1 with the value 12 and replace position 2 with the value 2.
-            Codes[1] = 12;
-            Codes[2] = 2;
+            Codes[1] = noun;
+            Codes[2] = verb;
         }
 
-        public List<int> StartComputer()
+        public int StartComputer()
         {
             var index = 0;
             while (index < Codes.Count) {
@@ -45,7 +68,7 @@ namespace AdventOfCode2019.DayTwo
                 }
                 index += 4;
             }
-            return Codes;
+            return Codes[0];
             
         }
 
