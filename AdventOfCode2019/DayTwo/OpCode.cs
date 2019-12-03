@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
+﻿
 namespace AdventOfCode2019.DayTwo
 {
     public enum CurrentOpCode
@@ -10,6 +7,30 @@ namespace AdventOfCode2019.DayTwo
         MULTIPLY,
         HALT,
         NONE
+    }
+
+    public class OpcodeFinder
+    {
+        public static CurrentOpCode GetOpcode(int number)
+        {
+            if (number == 1)
+            {
+                return CurrentOpCode.SUM;
+            }
+            else if (number == 2)
+            {
+                return CurrentOpCode.MULTIPLY;
+            }
+            else if (number == 99)
+            {
+                return CurrentOpCode.HALT;
+            }
+            else
+            {
+                return CurrentOpCode.NONE;
+            }
+        }
+    
     }
     
 }

@@ -22,19 +22,13 @@ namespace AdventOfCode2019.Tests
         [TestMethod]
         public void TestGetOpCode()
         {
-            Assert.AreEqual(CurrentOpCode.SUM, intcode.GetOpCode(1));
+            Assert.AreEqual(CurrentOpCode.SUM, OpcodeFinder.GetOpcode(1));
         }
 
         [TestMethod]
         public void TestSimpleExample()
         {
-            intcode.Codes = new List<int>();
-            intcode.Codes.Add(1);
-            intcode.Codes.Add(0);
-            intcode.Codes.Add(0);
-            intcode.Codes.Add(0);
-            intcode.Codes.Add(99);
-
+            intcode.Codes = new List<int>() { 1, 0, 0, 0, 99 };
             Assert.AreEqual(2, intcode.StartComputer()[0]);
         }
 
@@ -42,24 +36,41 @@ namespace AdventOfCode2019.Tests
         [TestMethod]
         public void TestSimpleExample2()
         {
-            intcode.Codes = new List<int>();
-            intcode.Codes.Add(1);
-            intcode.Codes.Add(1);
-            intcode.Codes.Add(1);
-            intcode.Codes.Add(4);
-            intcode.Codes.Add(99);
-            intcode.Codes.Add(5);
-            intcode.Codes.Add(6);
-            intcode.Codes.Add(0);
-            intcode.Codes.Add(99);
+            intcode.Codes = new List<int>() { 1, 1, 1, 4, 99, 5, 6, 0, 99 };
+            var expectedOutput = new List<int> { 30, 1, 1, 4, 2, 5, 6, 0, 99 };
 
-            Assert.AreEqual(30, intcode.StartComputer()[0]);
+            var output = intcode.StartComputer();
+            Assert.AreEqual(30, output[0]);
+            CollectionAssert.AreEqual(expectedOutput, output);
+        }
+    
+
+        [TestMethod]
+        public void TestSimpleExample3()
+        {
+            intcode.Codes = new List<int>() { 2, 4, 4, 5, 99, 0 };
+            var expectedOutput = new List<int> { 2, 4, 4, 5, 99, 9801 };
+
+            var output = intcode.StartComputer();
+            CollectionAssert.AreEqual(expectedOutput, output);
         }
 
+
+        [TestMethod]
+        public void TestSimpleExample4()
+        {
+            intcode.Codes = new List<int>() { 2, 3, 0, 3, 99 };
+            var expectedOutput = new List<int> { 2, 3, 0, 6, 99 };
+
+            var output = intcode.StartComputer();
+            CollectionAssert.AreEqual(expectedOutput, output);
+        }
+
+        
         [TestMethod]
         public void TestDoPartOne()
         {
-            Assert.AreEqual(30, intcode.StartComputer()[0]);
+            Assert.AreEqual(3101878, intcode.DoPartOne()[0]);
         }
 
     }

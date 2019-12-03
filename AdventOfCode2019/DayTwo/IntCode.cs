@@ -30,30 +30,18 @@ namespace AdventOfCode2019.DayTwo
         {
             var index = 0;
             while (index < Codes.Count) {
-                var currentOpCode = GetOpCode(Codes[index]);
+                var currentOpCode = OpcodeFinder.GetOpcode(Codes[index]);
                 if (currentOpCode == CurrentOpCode.HALT)
                 {
                     break;
                 }
                 else if (currentOpCode == CurrentOpCode.SUM)
                 {
-                    var firstPositionToSum = Codes[index + 1];
-                    var secondPositionToSum = Codes[index + 2];
-                    var outputPosition = Codes[index + 3];
-
-                    var outputNumber = Codes[firstPositionToSum] + Codes[secondPositionToSum];
-
-                    Codes[outputPosition] = outputNumber;
+                    PerformSum(index);
                 }
                 else if (currentOpCode == CurrentOpCode.MULTIPLY)
                 {
-                    var firstPositionToMultiply = Codes[index + 1];
-                    var secondPositionToMultiply = Codes[index + 2];
-                    var outputPosition = Codes[index + 3];
-
-                    var outputNumber = Codes[firstPositionToMultiply] * Codes[secondPositionToMultiply];
-
-                    Codes[outputPosition] = outputNumber;
+                    PerformMultiply(index);
                 }
                 index += 4;
             }
@@ -61,26 +49,30 @@ namespace AdventOfCode2019.DayTwo
             
         }
 
-
-        public CurrentOpCode GetOpCode(int number)
+        private void PerformSum(int index)
         {
-            if (number == 1)
-            {
-                return CurrentOpCode.SUM;
-            }
-            else if (number == 2)
-            {
-                return CurrentOpCode.MULTIPLY;
-            }
-            else if (number == 99)
-            {
-                return CurrentOpCode.HALT;
-            }
-            else
-            {
-                return CurrentOpCode.NONE;
-            }
+            var firstPositionToSum = Codes[index + 1];
+            var secondPositionToSum = Codes[index + 2];
+            var outputPosition = Codes[index + 3];
 
+            var outputNumber = Codes[firstPositionToSum] + Codes[secondPositionToSum];
+
+            Codes[outputPosition] = outputNumber;
         }
+
+
+        private void PerformMultiply(int index)
+        {
+            var firstPositionToMultiply = Codes[index + 1];
+            var secondPositionToMultiply = Codes[index + 2];
+            var outputPosition = Codes[index + 3];
+
+            var outputNumber = Codes[firstPositionToMultiply] * Codes[secondPositionToMultiply];
+
+            Codes[outputPosition] = outputNumber;
+        }
+
+
+ 
     }
 }
