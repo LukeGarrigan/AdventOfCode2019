@@ -33,8 +33,12 @@ namespace AdventOfCode2019.Helpers
             }
 
             return numbers;
+        }
 
-
+        public static string GetString(string filePath)
+        {
+            var myString = System.IO.File.ReadAllText(filePath);
+            return myString;
         }
     }
 }
