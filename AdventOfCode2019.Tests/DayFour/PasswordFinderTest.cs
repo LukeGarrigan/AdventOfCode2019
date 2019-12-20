@@ -1,9 +1,7 @@
+using AdventOfCode2019.DayFour;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-using AdventOfCode2019.DayFour;
-using AdventOfCode2019.Helpers;
-
-namespace AdventOfCode2019.Tests
+namespace AdventOfCode2019.Tests.DayFour
 {
     [TestClass]
     public class PasswordFinderTests

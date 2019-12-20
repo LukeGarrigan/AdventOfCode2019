@@ -1,9 +1,9 @@
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using AdventOfCode2019.DayThree;
-using System.Collections.Generic;
 using System;
+using System.Collections.Generic;
+using AdventOfCode2019.DayThree;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace AdventOfCode2019.Tests
+namespace AdventOfCode2019.Tests.DayThree
 {
     [TestClass]
     public class CrossedWiresTest

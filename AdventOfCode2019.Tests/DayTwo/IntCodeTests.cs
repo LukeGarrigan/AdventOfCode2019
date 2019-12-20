@@ -1,10 +1,9 @@
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-
+using System.Collections.Generic;
 using AdventOfCode2019.DayTwo;
 using AdventOfCode2019.Helpers;
-using System.Collections.Generic;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace AdventOfCode2019.Tests
+namespace AdventOfCode2019.Tests.DayTwo
 {
     [TestClass]
     public class IntCodeTest

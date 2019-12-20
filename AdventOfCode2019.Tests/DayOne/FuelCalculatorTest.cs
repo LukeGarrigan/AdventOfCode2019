@@ -1,9 +1,8 @@
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-
 using AdventOfCode2019.DayOne;
 using AdventOfCode2019.Helpers;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace AdventOfCode2019.Tests
+namespace AdventOfCode2019.Tests.DayOne
 {
     [TestClass]
     public class FuelCalculatTests
