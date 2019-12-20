@@ -53,7 +53,7 @@ namespace AdventOfCode2019.Tests.DaySix
         public void TestDoPartOne()
         {
 
-            orbitMap.DoPartOne("DaySix/data.txt").Should().Be(100);
+            orbitMap.DoPartOne("DaySix/data.txt").Should().Be(621125);
         }
 
 
